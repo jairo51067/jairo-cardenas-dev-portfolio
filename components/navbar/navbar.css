@@ -1,19 +1,34 @@
-/* NAVBAR BASE */
+/* =========================
+   NAVBAR BASE
+========================= */
 .navbar {
   position: sticky;
   top: 0;
+  width: 100%;
   background: rgba(255, 255, 255, 0.8);
   backdrop-filter: blur(10px);
   z-index: 1000;
-  transition: background 0.3s ease;
+  transition: all 0.3s ease;
 }
 
-/* DARK MODE */
+/* 🌙 DARK MODE */
 [data-theme="dark"] .navbar {
   background: rgba(15, 23, 42, 0.8);
 }
 
-/* CONTAINER */
+/* 🔥 SCROLL EFFECT */
+.navbar.scrolled {
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: var(--shadow-sm);
+}
+
+[data-theme="dark"] .navbar.scrolled {
+  background: rgba(15, 23, 42, 0.95);
+}
+
+/* =========================
+   CONTAINER
+========================= */
 .nav-container {
   display: flex;
   align-items: center;
@@ -21,39 +36,66 @@
   padding: 14px 20px;
 }
 
-/* LOGO */
+/* =========================
+   LOGO
+========================= */
 .logo-name {
   font-size: 1.1rem;
   font-weight: 600;
   color: var(--text);
 }
 
-/* LINKS DESKTOP */
+/* =========================
+   LINKS DESKTOP
+========================= */
 .nav-links {
   display: flex;
   list-style: none;
   gap: 28px;
 }
 
-.nav-links a {
+.nav-link {
+  position: relative;
   text-decoration: none;
   color: var(--text-muted);
   font-size: 0.9rem;
   font-weight: 500;
+  transition: color 0.25s ease;
 }
 
-.nav-links a:hover {
+.nav-link:hover {
   color: var(--text);
 }
 
-/* ACTIONS */
+/* 🔥 underline animado */
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0%;
+  height: 2px;
+  background: var(--primary);
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+/* =========================
+   ACTIONS
+========================= */
 .nav-actions {
   display: flex;
   align-items: center;
   gap: 10px;
 }
 
-/* THEME BUTTON */
+/* =========================
+   THEME BUTTON
+========================= */
 .theme-toggle {
   border: 1px solid var(--border);
   background: var(--surface);
@@ -61,60 +103,37 @@
   padding: 6px 10px;
   border-radius: var(--radius-sm);
   cursor: pointer;
+  transition: all 0.2s ease;
 }
 
-/* MENU TOGGLE */
+.theme-toggle:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-sm);
+}
+
+/* =========================
+   MENU TOGGLE
+========================= */
 .menu-toggle {
   display: none;
-  font-size: 22px;
+  font-size: 24px;
   cursor: pointer;
   padding: 6px 10px;
   border-radius: var(--radius-sm);
+  transition: all 0.3s ease;
 }
 
 .menu-toggle:hover {
   background: var(--secondary-bg);
 }
 
-/* 📱 MOBILE */
-@media (max-width: 768px) {
-
-  .menu-toggle {
-    display: block;
-  }
-
-  /* 🔥 OCULTAR NAV LINKS */
-  .nav-links {
-    position: absolute;
-    top: 70px;
-    right: 20px;
-
-    display: none;
-    flex-direction: column;
-
-    width: 220px;
-    padding: 10px 0;
-
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-md);
-    box-shadow: var(--shadow-md);
-  }
-
-  .nav-links.active {
-    display: flex;
-  }
-
-  .nav-links li {
-    padding: 10px 20px;
-  }
-
-  .nav-links a {
-    color: var(--text);
-  }
-
+.menu-toggle.active {
+  transform: rotate(180deg);
 }
 
+/* =========================
+   OVERLAY
+========================= */
 .nav-overlay {
   position: fixed;
   inset: 0;
@@ -131,28 +150,34 @@
   pointer-events: all;
 }
 
+/* =========================
+   📱 MOBILE
+========================= */
 @media (max-width: 768px) {
+
+  .menu-toggle {
+    display: block;
+  }
 
   .nav-links {
     position: fixed;
     top: 0;
     right: 0;
 
-    /* height: 100vh; */
-    width: 130px;
+    height: 100vh;
+    width: 260px;
 
     background: var(--surface);
     border-left: 1px solid var(--border);
     box-shadow: var(--shadow-lg);
 
-    display: flex;
     flex-direction: column;
     padding-top: 80px;
 
     transform: translateX(100%);
-    transition: transform 0.3s ease;
+    transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
 
-    z-index: 1000;
+    z-index: 1001;
   }
 
   .nav-links.active {
@@ -161,27 +186,28 @@
 
   .nav-links li {
     padding: 15px 25px;
+    opacity: 0;
+    transform: translateX(20px);
+    transition: all 0.3s ease;
   }
 
-}
+  /* 🔥 stagger animation */
+  .nav-links.active li {
+    opacity: 1;
+    transform: translateX(0);
+  }
 
-/* =========================
-   🔥 ACTIVE LINK (SCROLL SPY)
-========================= */
-.nav-link.active {
-  color: var(--text);
-  position: relative;
-}
+  .nav-links.active li:nth-child(1) { transition-delay: 0.05s; }
+  .nav-links.active li:nth-child(2) { transition-delay: 0.1s; }
+  .nav-links.active li:nth-child(3) { transition-delay: 0.15s; }
+  .nav-links.active li:nth-child(4) { transition-delay: 0.2s; }
 
-.nav-link.active::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -4px;
+  .nav-links a {
+    color: var(--text);
+    font-size: 1rem;
+  }
 
-  width: 100%;
-  height: 2px;
-
-  background: var(--primary);
-  border-radius: 2px;
+  body {
+    overflow-x: hidden;
+  }
 }
