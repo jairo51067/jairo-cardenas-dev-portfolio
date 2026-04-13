@@ -25,6 +25,9 @@
     var(--background);
 
   padding: var(--space-xxl) var(--space-lg);
+
+  /* 🔥 EVITA DESBORDES */
+  overflow-x: hidden;
 }
 
 .hero-grid {
@@ -70,7 +73,7 @@
 }
 
 /* =========================
-   🟦 HERO CARD (PRO)
+   🟦 HERO CARD
 ========================= */
 .hero-card {
   background: var(--surface);
@@ -103,7 +106,7 @@
 }
 
 /* =========================
-   📱 RESPONSIVE
+   📱 RESPONSIVE HERO
 ========================= */
 @media (max-width: 768px) {
   .hero-grid {
@@ -131,9 +134,13 @@
   position: fixed;
   inset: 0;
   z-index: 1000;
+
   display: none;
   align-items: center;
   justify-content: center;
+
+  /* 🔥 ESPACIADO EN MOBILE */
+  padding: 20px;
 }
 
 .cv-modal.active {
@@ -146,8 +153,10 @@
 .modal-overlay {
   position: fixed;
   inset: 0;
+
   background: rgba(0, 0, 0, 0.4);
   backdrop-filter: blur(6px);
+
   z-index: 999;
   display: none;
 }
@@ -157,16 +166,17 @@
 }
 
 /* =========================
-   📦 MODAL CONTENT
+   📦 MODAL CONTENT (FIX PRO)
 ========================= */
 .cv-modal-content {
   background: var(--surface);
   color: var(--text);
 
   width: 100%;
-  max-width: 380px;
-  border-radius: 24px;
-  padding: 30px;
+  max-width: 420px;
+
+  border-radius: 20px;
+  padding: 25px;
 
   position: relative;
   z-index: 1001;
@@ -176,6 +186,10 @@
 
   transform: translateY(20px);
   transition: transform 0.3s ease;
+
+  /* 🔥 CONTROL DE ALTURA */
+  max-height: 90vh;
+  overflow-y: auto;
 }
 
 .cv-modal.active .cv-modal-content {
@@ -233,8 +247,8 @@
   align-items: center;
   gap: 12px;
 
-  padding: 15px;
-  border-radius: 14px;
+  padding: 14px;
+  border-radius: 12px;
 
   background: var(--background);
   color: var(--text);
@@ -250,4 +264,30 @@
 .cv-btn:hover {
   background: var(--secondary-bg);
   transform: scale(1.02);
+}
+
+/* =========================
+   📱 MODAL MOBILE FIX
+========================= */
+@media (max-width: 480px) {
+
+  .cv-modal {
+    padding: 15px;
+  }
+
+  .cv-modal-content {
+    padding: 20px;
+    border-radius: 16px;
+  }
+
+  .cv-btn {
+    padding: 12px;
+  }
+}
+
+/* =========================
+   🔥 GLOBAL FIX (CLAVE)
+========================= */
+html, body {
+  overflow-x: hidden;
 }
