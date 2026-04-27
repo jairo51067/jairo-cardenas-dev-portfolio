@@ -38,21 +38,42 @@
    🟦 CARD
 ========================= */
 .project-card {
+  position: relative; /* <--- CRUCIAL: Esto ancla el badge a la tarjeta */
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   padding: 24px;
-
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-
   transition: all 0.3s ease;
 }
-
 .project-card:hover {
   transform: translateY(-6px);
   box-shadow: var(--shadow-lg);
+}
+
+/* =========================
+   🟦 BAGDE
+========================= */
+/* Tu código del badge (limpiado de duplicados) */
+.badge-new {
+    position: absolute;
+    top: -8px;
+    right: -5px;
+    background: linear-gradient(45deg, #e52d27, #b31217); 
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    color: white;
+    font-size: 0.6rem;
+    font-weight: 800;
+    padding: 2px 8px;
+    border-radius: 6px;
+    z-index: 20;
+    box-shadow: 0 2px 8px rgba(240, 17, 17, 0.3);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transform: translateY(0) !important;
+    transition: none !important;
 }
 
 /* =========================
