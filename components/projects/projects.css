@@ -206,6 +206,52 @@
   box-shadow: var(--shadow-sm);
 }
 
+/* =========================
+   ⚪ BUTTON (LANDIG PAGE)
+========================= */
+.project-landing-action {
+  margin-top: 15px;
+  width: 100%;
+}
+
+.btn-landing {
+  display: flex;
+  flex-direction: column; /* Para que el texto secundario quede debajo */
+  align-items: center;
+  justify-content: center;
+  padding: 12px 20px;
+  
+  margin: 10px auto;
+  
+  /* Color Premium: Negro profundo con un borde sutil */
+  background: #1a1a1a; 
+  color: #ffffff;
+  text-align: center;
+  
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  margin-top: 10px;
+}
+
+.btn-landing:hover {
+  background: #000000;
+  transform: translateY(-3px);
+  box-shadow: 0px 30px 30px rgba(0, 0, 0, 0.2);
+  border-color: var(--primary); /* Ilumina el borde con tu color principal al pasar el mouse */
+}
+
+/* Texto pequeño dentro del botón */
+.btn-landing span {
+  font-size: 0.75rem;
+  font-weight: 400;
+  opacity: 0.8;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
 
 /* =========================
    📱 RESPONSIVE

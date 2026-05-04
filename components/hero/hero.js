@@ -21,7 +21,7 @@ document.addEventListener("moduleLoaded:hero", () => {
     document.body.style.overflow = "";
   }
 
-  document.addEventListener("click", (e) => {
+  document.addEventListener("click", (e) => {  
     const target = e.target;
 
     // ✅ Abrir modal
