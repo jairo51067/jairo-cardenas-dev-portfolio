@@ -24,10 +24,11 @@
     radial-gradient(circle at 20% 20%, rgba(0, 113, 227, 0.08), transparent),
     var(--background);
 
-  padding: var(--space-xxl) var(--space-lg);
+  padding: var(--space-lg);
 
   /* 🔥 EVITA DESBORDES */
   overflow-x: hidden;
+  
 }
 
 .hero-grid {
@@ -120,6 +121,7 @@
 
   .hero-visual {
     margin-top: var(--space-lg);
+    margin-bottom: var(--space-lg);
   }
 
   .buttons {

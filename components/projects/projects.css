@@ -2,7 +2,7 @@
    🟦 SECTION
 ========================= */
 .projects {
-  padding: 50px 20px;
+  padding: var(--space-lg); 
 }
 
 /* =========================
@@ -46,7 +46,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  transition: all 0.3s ease;
+  transition: all 0.1s ease;
 }
 .project-card:hover {
   transform: translateY(-6px);
@@ -207,7 +207,7 @@
 /* =========================
    📱 RESPONSIVE
 ========================= */
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
   .projects {
     padding: 80px 20px;
   }
@@ -218,5 +218,35 @@
 
   .project-links a{
     width: 100%;
+  }
+} */
+
+/* =========================
+   📱 RESPONSIVE CORREGIDO
+========================= */
+@media (max-width: 768px) {
+  .projects {
+    /* Bajamos el padding superior para que el contenido suba en móviles */
+    padding: 40px 15px; 
+  }
+
+  .projects-grid {
+    /* Bajamos el minmax a 250px para asegurar que quepa en cualquier móvil */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+  }
+
+  .projects-intro {
+    margin-bottom: 30px; /* Menos espacio de separación */
+  }
+
+  .project-links {
+    flex-direction: column; /* Botones uno encima de otro para evitar choques */
+    justify-content: center;
+  }
+
+  .project-links a {
+    width: 100%;
+    margin-bottom: 5px;
   }
 }
