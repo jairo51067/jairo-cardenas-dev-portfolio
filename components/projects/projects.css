@@ -244,14 +244,7 @@
   border-color: var(--primary); /* Ilumina el borde con tu color principal al pasar el mouse */
 }
 
-/* Texto pequeño dentro del botón */
-.btn-landing span {
-  font-size: 0.75rem;
-  font-weight: 400;
-  opacity: 0.8;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
+
 
 /* =========================
    📱 RESPONSIVE
