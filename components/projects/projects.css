@@ -46,8 +46,9 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  transition: all 0.1s ease;
+  /* transition: all 0.1s ease; */
 }
+
 .project-card:hover {
   transform: translateY(-6px);
   box-shadow: var(--shadow-lg);
@@ -100,6 +101,7 @@
 ========================= */
 .project-tech {
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
   gap: 8px;
   margin-bottom: 15px;
@@ -118,6 +120,7 @@
 ========================= */
 .project-links {
   display: flex;
+  justify-content: space-around;
   gap: 10px;
 }
 
@@ -207,23 +210,6 @@
 /* =========================
    📱 RESPONSIVE
 ========================= */
-/* @media (max-width: 768px) {
-  .projects {
-    padding: 80px 20px;
-  }
-
-  .project-links{
-    justify-content: center;
-  }
-
-  .project-links a{
-    width: 100%;
-  }
-} */
-
-/* =========================
-   📱 RESPONSIVE CORREGIDO
-========================= */
 @media (max-width: 768px) {
   .projects {
     /* Bajamos el padding superior para que el contenido suba en móviles */
@@ -239,12 +225,7 @@
   .projects-intro {
     margin-bottom: 30px; /* Menos espacio de separación */
   }
-
-  .project-links {
-    flex-direction: column; /* Botones uno encima de otro para evitar choques */
-    justify-content: center;
-  }
-
+ 
   .project-links a {
     width: 100%;
     margin-bottom: 5px;
