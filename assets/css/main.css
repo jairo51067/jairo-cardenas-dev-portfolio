@@ -26,6 +26,10 @@ h3 {
   font-size: var(--text-xl);
 }
 
+a{
+  text-decoration: none  ! important;
+}
+
 /* 📦 Layout consistente */
 section {
   padding: var(--space-xl) var(--space-md);
