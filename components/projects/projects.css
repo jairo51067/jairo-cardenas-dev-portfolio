@@ -125,6 +125,7 @@
 }
 
 .project-links a {
+  width: 100%;
   gap: 6px;
 }
 
